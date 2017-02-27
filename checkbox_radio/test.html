@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>雪碧图自定义</title>
+<style>
+input{display: none;}
+label { cursor: pointer; color: #555; }
+input[type="radio"] + label span {
+  display: inline-block;
+  vertical-align: bottom; width: 20px; height: 26px;
+  background: url(./image/1.png) -20px top no-repeat; }
+input[type="radio"]:checked + label span {
+  display: inline-block;
+  vertical-align: bottom; width: 20px; height: 26px;
+  background: url(./image/1.png) -56px top no-repeat;}
+input[type="checkbox"] + label span {
+  display: inline-block;
+  vertical-align: top; width: 20px; height: 20px;
+  background: url(./image/1.png) -20px bottom no-repeat; }
+input[type="checkbox"]:checked + label span {
+  display: inline-block;
+  vertical-align: top; width: 20px; height: 20px;
+  background: url(./image/1.png) -56px bottom no-repeat;}
+  input[type="radio"]:checked + label{color:#EE2C2C;}
+  input[type="checkbox"]:checked + label{color:#EE2C2C;}
+
+</style>
+</head>
+<body>
+<div>
+<input type="radio" name="radio" id="not"/><label for="not"><span></span>first radio</label><br/>
+<input type="radio" name="radio" id="red"/><label for="red"><span></span>last radio</label>
+</div>
+<div>
+<input type="checkbox" name="checkbox" id="che"/><label for="che"><span></span>This is a checkbox</label>
+</div>
+
+</body>
+</html>
