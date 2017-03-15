@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>html</title>
+<style>
+body{
+  padding: 0px;
+  margin: 0px;
+  background-color: #fff;
+}
+#all{
+  width: 1280px;
+  margin: 0 auto;
+  border:1px solid #fff;
+}
+#first{
+  width: 1280px;
+  height: 60px;
+  background-color: #fff;
+}
+#firone{
+  float: left;
+  position: relative;
+  top:10px;
+  left: 60px;
+}
+#firone span{
+  display: inline-block;
+  font-size: 22px;
+  font-family: SimHei;
+  color: black;
+  position: relative;
+  bottom: 5px;
+}
+#firtwo{
+    float: right;
+    position: relative;
+    right:60px;
+    top: 18px;
+}
+#firtwo a{
+  position: relative;
+  bottom: 2px;
+  right: 2px;
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  color: #e9605e;
+  text-decoration:none;
+  z-index: 1;
+}
+#firthr{
+  position: relative;
+  right:70px;
+  bottom: 3px;
+}
+#firthr ul{
+  height: 60px;
+  margin:0px;
+  padding:0px 0px;
+  position: relative;
+  top: 0;
+}
+#firthr li{
+  display: inline;
+  height: 60px;
+  float: right;
+}
+#firthr li a{
+  display: inline-block;
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  color: #787b83;
+  text-decoration:none;
+  line-height: 60px;
+  height: 60px;
+  padding: 0px 15px;
+  margin: 0px 5px;
+}
+#firthr li a:hover{
+  color: #e9605e;
+  border-bottom: 5px solid #e9605e;
+}
+#fuc{
+  width: 1280px;
+  height: 935px;
+  position: relative;
+}
+#second{
+  position: relative;
+}
+#second img+div{
+  width: 1280px;
+  height: 850px;
+  position: absolute;
+  top: 0;
+  background-color: black;
+  opacity: 0.2;
+}
+#biglife{
+  font-family: Microsoft YaHei;
+  font-size: 60px;
+  color:#fff;
+  position: absolute;
+  bottom: 500px;
+  left: 120px;
+}
+.life{
+  font-family: Microsoft YaHei;
+  font-size: 21px;
+  color:#fff;
+  margin: 0px 0px 5px 0px;
+}
+#second div+div{
+  width: 350px;
+  height: 60px;
+  font-family: Microsoft YaHei;
+  font-size: 30px;
+  color:#fff;
+  background-color:#e74f4d;
+  position: absolute;
+  text-align: center;
+  bottom: 360px;
+  left: 130px;
+}
+#second div+div span{
+  display: inline-block;
+  position: relative;
+  top:10px;
+  letter-spacing: 5px;
+}
+#second p+div{
+  position: absolute;
+  bottom: 480px;
+  left: 130px;
+}
+#third{
+  width: 1280px;
+  height: 250px;
+  background-color: #fff;
+  position: relative;
+  bottom: 165px;
+}
+#img table{
+  width: 1280px;
+  height: 130px;
+  text-align: center;
+}
+#img table td{
+  width: 320px;
+}
+#third div+div table{
+  font-family: Microsoft YaHei;
+  font-size: 15px;
+  color:#828383;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+}
+#third div+div table td{
+  padding: 0px 70px;
+  width: 320px;
+}
+.td{
+  border-right: 2px solid #aaaaaa;
+}
+#fourth{
+  width: 1280px;
+  height: 360px;
+  background-color: #ededed;
+  text-align: center;
+}
+#fourth img{
+  margin-top: 100px;
+}
+#fourth p{
+  font-family: SimHei;
+  font-size: 55px;
+  color:#a1a1a1;
+  margin-top: 40px;
+}
+#fifth{
+  width: 1280px;
+  height: 340px;
+  position: relative;
+}
+#fifth img{
+  width: 1280px;
+  height: 340px;
+}
+#fifth img+div{
+  width: 1280px;
+  height: 340px;
+  position: absolute;
+  top: 0;
+  background-color: #FFAEB9;
+  opacity: 0.3;
+}
+#fifth div+div{
+  width: 1280px;
+  font-family: SimHei;
+  font-size: 23px;
+  color:#fff;
+  position: absolute;
+  top:30px;
+  text-align: center;
+}
+#fifth span{
+  display: inline-block;
+  padding-bottom: 8px;
+}
+#fifth span:hover{
+  border-bottom: 3px solid #fff;
+}
+#fifth div+p{
+  width: 1280px;
+  font-family: SimHei;
+  font-size: 14px;
+  color:#fff;
+  position: absolute;
+  top:100px;
+  text-align: center;
+}
+#fifth p+div{
+  position: absolute;
+  bottom: 100px;
+  width: 1280px;
+}
+#table{
+  width: 1040px;
+  height: 60px;
+  margin: 0 auto;
+}
+#table table{
+  text-align: center;
+}
+#table td{
+  width: 320px;
+}
+#fifth td div{
+  position: relative;
+  width: 240px;
+  height: 40px;
+  background: url("./000.png") no-repeat 213px #fff;
+}
+#fifth p+div select{
+  position: relative;
+  background: transparent;
+  width: 240px;
+  height: 40px;
+  -webkit-appearance: none;
+  border: 0px;
+  padding: 0px 15px;
+  font-family: SimHei;
+  font-size: 14px;
+  color:#8B8B83;
+  outline-color:#be4e48;
+}
+option{
+  background-color: #e3e3e4;
+}
+/*option:hover{
+  background:url("./234.png");
+  color: black;
+}*/   /*无效，但网上有个例子http://www.qdfuns.com/notes/28928/eea200515f0cc4011699de36bd3d689d.html*/
+#fifth td input{
+  width: 240px;
+  height: 40px;
+  background-color:#be4e48;
+  border: none;
+  font-family: SimHei;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 20px;
+}
+#sixth{
+  width: 1280px;
+  height: 610px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+#sixth table{
+  width: 1040px;
+  height: 420px;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+#sixth img{
+  width: 200px;
+  height: 310px;
+  margin: 0 auto;
+}
+#sixth .imgdiv{
+  width: 220px;
+  height: 340px;
+  background-color: #fff;
+  padding-top: 15px;
+  margin: 0 auto;
+  border: 1px solid #ebebeb;
+}
+#sixth table div+p{
+  font-family: STXihei;
+  font-size: 16px;
+}
+#sixth table p+p{
+  font-family: STXihei;
+  font-size: 14px;
+  color: #888989;
+}
+#sixth p{
+  line-height: 10px;
+}
+#td{
+  font-family: STXihei;
+  font-size: 24px;
+  letter-spacing: 28px;
+  margin-left: 20px;
+}
+#seventh{
+  width: 1280px;
+  height: 565px;
+}
+#div77{
+  width: 850px;
+  height: 565px;
+  text-align: center;
+  position: relative;
+}
+#di{
+  width: 430px;
+  height: 565px;
+  background-color: #fff;
+  float: right;
+}
+.p{
+  width: 850px;
+  font-family: SimHei;
+  color: #fff;
+}
+.p1{
+  font-size: 50px;
+  margin-bottom: 0px;
+}
+.p2{
+  font-family: Microsoft Yahei;
+  font-size: 160px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 130px;
+}
+.p3{
+    font-size: 25px;
+}
+.p4{
+    font-size: 25px;
+    margin-top: -10px;
+    position: relative;
+    right:16px;
+}
+#div77 img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+#new{
+  padding-top: 80px;
+}
+#in{
+  width: 430px;
+  text-align: center;
+  padding-top: 160px;
+}
+#no{
+  font-family: SimHei;
+  font-size: 20px;
+}
+#no span{
+  font-family: Microsoft Yahei;
+  font-size: 20px;
+  color: #e74f4d;
+}
+.world{
+  font-family: Microsoft Yahei;
+  font-size: 11px;
+  color: #c9c9c9;
+}
+#ali{
+  position: relative;
+  right: 48px;
+  margin-bottom: 40px;
+}
+#dq{
+  width: 105px;
+  height: 30px;
+  border: 1px solid #e46669;
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+#dq span{
+  display: inline-block;
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+  color: #e74f4d;
+  position: relative;
+  top: 4px;
+}
+.radi{
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+.qo{
+  background-color: #919292;
+  position: relative;
+  left: 188px;
+  top: 20px;
+}
+.io{
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border: 1px solid #919292;
+  position: relative;
+  left: 210px;
+  top: 10px;
+}
+.ao{
+  position: relative;
+  left: 232px;
+  top: 0px;
+}
+.wo{
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 25px solid #fff;
+    border-bottom: 15px solid transparent;
+    position: relative;
+    right: 25px;
+    bottom: 180px;
+}
+.people{
+  width: 430px;
+  height: 520px;
+  float: right;
+  position: relative;
+}
+.whi{
+  width: 425px;
+  height: 520px;
+  background-color: #fff;
+  float: right;
+  color: black;
+}
+.red{
+  width: 425px;
+  height: 520px;
+  background-color: #e74f4d;
+  color:#fff;
+}
+.people img{
+  width: 430px;
+  height: 520px;
+}
+#ri{
+  width: 430px;
+  height: 520px;
+  background-color: black;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.zi{
+  font-family: Microsoft Yahei;
+  font-size: 20px;
+  text-align: center;
+}
+.zi p{
+  margin-top: 0px;
+  margin-bottom: 6px;
+}
+.zi p:first-child{
+  padding-top:160px;
+}
+.zi p+div{
+  width: 35px;
+  height: 2px;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+}
+.whi p+div{
+  background-color: #ababab;
+}
+.red p+div{
+  background-color: #fff;
+}
+#divdiv{
+  width: 170px;
+  height: 40px;
+  border: 1px solid #e74f4d;
+  color: #e74f4d;
+  margin: 0 auto;
+  position: relative;
+  top: 40px;
+  }
+.red div+div{
+  width: 170px;
+  height: 40px;
+  border: 1px solid #fff;
+  margin: 0 auto;
+  position: relative;
+  top: 40px;
+}
+.zi span{
+  position: relative;
+  top: 5px;
+}
+#righ{
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-left: 25px solid #fff;
+  border-bottom: 15px solid transparent;
+  position: relative;
+  left: 425px;
+  top: -30px
+}
+#ninth{
+  width: 1280px;
+  height: 750px;
+}
+#mm{
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+#mm p:first-child{
+  font-family: Microsoft Yahei;
+  font-size: 22px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.grey{
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  line-height: 0px;
+}
+#mm p+div{
+  width: 30px;
+  height: 2px;
+  background-color: #ea6563;
+  margin: 0 auto;
+}
+#xx td{
+  width: 300px;
+}
+.input{
+  width: 300px;
+  height: 40px;
+  border: none;
+  background-color: #ededee;
+  font-family: SimHei;
+  font-size: 13px;
+  padding-left: 20px;
+}
+.dis{
+  padding-right: 60px;
+}
+.fiftee{
+  padding-right: 15px;
+}
+.hard{
+  font-family: SimHei;
+  font-size: 18px;
+}
+.low{
+  font-family: SimHei;
+  font-size: 12px;
+  color:#bcbbba;
+}
+#xx p+div{
+  float: right;
+  font-family: SimHei;
+  font-size: 14px;
+  color:#bcbbba;
+}
+#xx textarea{
+  padding-top: 10px;
+  width: 635px;
+  height: 120px;
+  resize:none;
+}
+.submit{
+  font-size: 16px;
+  width: 655px;
+}
+#xx{
+  position: relative;
+  top: 220px;
+  margin-left: 140px;
+}
+#tenth{
+  width: 1280px;
+  height: 360px;
+  background-color: #32363f;
+  text-align: center;
+}
+#tenth p:first-child{
+  font-family: SimHei;
+  font-size: 22px;
+  color:#fff;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.eee{
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+  color:#fff;
+  letter-spacing: 1px;
+  padding: 0px;
+  margin: 0px;
+  line-height: 20px;
+  opacity: 0.8;
+}
+#tenth input[type=text]{
+  width: 430px;
+  height: 34px;
+  font-size: 14px;
+  padding-left: 10px;
+}
+#tenth input[type=submit]{
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: #6f7278;
+  font-family: Microsoft Yahei;
+  font-size: 15px;
+  color: #fff;
+  position: relative;
+  top: 1px;
+  letter-spacing: 5px;
+}
+#tenth input{
+  margin-top: 25px;
+}
+#tenth input+div{
+  margin-top: 35px;
+}
+#tenth input+div img{
+  padding: 0px 10px 0px 10px;
+}
+#end{
+  position: relative;
+  top: 80px;
+}
+#eleventh{
+  width: 1280px;
+  height: 55px;
+  background-color: #2f2f38;
+}
+#eleventh span{
+  display: inline-block;
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+  color: #fff;
+}
+#eleventh span:first-child{
+  position: relative;
+  top: 25px;
+  left: 120px;
+}
+#eleventh span+span{
+  float: right;
+  position: relative;
+  top: 25px;
+  right: 40px;
+}
+</style>
+</head>
+<body>
+<div id="all">
+  <div id="first">
+    <div id="firone">
+      <img src="./01.png">
+      <span>新世界</span>
+    </div>
+    <div id="firtwo">
+      <img src="./02.png">
+      <a href="alert(this.innerhtml)">登录</a>
+    </div>
+    <div id="firthr">
+      <ul>
+        <li><a href="alert(this.innerhtml)">关于我们</a></li>
+        <li><a href="alert(this.innerhtml)">爱心社区</a></li>
+        <li><a href="alert(this.innerhtml)">项目介绍</a></li>
+        <li><a href="alert(this.innerhtml)">最新活动</a></li>
+        <li><a href="alert(this.innerhtml)">首页</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="fuc">
+    <div id="second">
+      <img src="./03.png">
+      <div></div>
+      <p id="biglife">Time of new life</p>
+      <div>
+        <p class="life">新时代，年轻的人们让我们一起</p>
+        <p class="life">体验新生活，享受新生活</p>
+      </div>
+      <div><span>开始体验</span></div>
+    </div>
+    <div id="third">
+      <div id="img">
+        <table>
+          <tr>
+            <td><img src="./06.png" id="img1"></td>
+            <td><img src="./05.png" id="img2"></td>
+            <td><img src="./04.png" id="img3"></td>
+            <td><img src="./07.png" id="img4"></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table>
+          <tr>
+            <td class="td">打造全新世界观，让你更爱你的生活</td>
+            <td class="td">丰富多彩的工艺活动，发挥新世界的主人意识</td>
+            <td class="td">时尚的新理念，超前体验未知的生活</td>
+            <td>完善的培养机制，培养你全新的世界观</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="fourth">
+    <img src="./08.png">
+    <p>关于新世界，你不知道的还有什么？</p>
+  </div>
+  <div id="fifth">
+    <img src="./110.png">
+    <div></div>
+    <div><p><span>查</span><span>找</span><span>新</span><span>世</span><span>界</span><span>城</span><span>市</span><span>活</span><span>动</span><span>信</span><span>息</span></p></div>
+    <p>每个城市都有不同的活动信息，请自主查询您所需要了解的城市</p>
+    <div>
+      <div id="table">
+        <form>
+          <table>
+            <tr>
+              <td>
+                <div>
+                  <select>
+                    <option>中国</option>
+                    <option>美国</option>
+                    <option>新加坡</option>
+                    <option>日本</option>
+                    <option>欧洲</option>
+                    <option>非洲</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <select  value="省份">
+                    <option>北京市</option>
+                    <option>天津市</option>
+                    <option>河北省</option>
+                    <option>陕西省</option>
+                    <option>内蒙古自治区</option>
+                    <option>辽宁省</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <select>
+                    <option>城市</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <input type="submit"  value="搜索"/>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id=sixth>
+    <table>
+      <tr>
+        <td>
+          <div class="imgdiv">
+            <img src="./33.png">
+          </div>
+          <p>北京活动</p>
+          <p>新社区大联盟</p>
+        </td>
+        <td>
+          <p id="td">上海活动</p>
+          <p>夜上海新景观探索</p>
+          <div class="imgdiv">
+            <img src="./44.png">
+          </div>
+        </td>
+        <td>
+          <div class="imgdiv">
+            <img src="./55.png">
+          </div>
+          <p>深圳活动</p>
+          <p>全新海岸线观点站</p>
+        </td>
+        <td>
+          <div class="imgdiv">
+            <img src="./66.png">
+          </div>
+          <p>香港活动</p>
+          <p>奢侈消费大派送</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="seventh">
+    <div id="di">
+      <div id="in">
+        <p id="no">新世界╱<span>01</span></p>
+        <div>
+          <p class="world">新世界是个新世界新世界是个新世界新世界是个新世界</p>
+          <p class="world">新世界是个新世界新世界是个新世界新世界是个新世界</p>
+          <p class="world">新世界是个新世界新世界是个新世界新世界是个新世界</p>
+          <p class="world">新世界是个新世界新世界是个新世界新世界是个新世界</p>
+          <p class="world" id="ali">新世界是个新世界新世界是个新世界</p>
+        </div>
+        <div id="dq"><span>更多详情</span></div>
+        <div class="radi qo"></div>
+        <div class="radi io"></div>
+        <div class="radi io ao"></div>
+        <div class="wo"></div>
+      </div>
+    </div>
+    <div id="div77">
+      <div id="new">
+        <p class="p p1">新世界</p>
+        <p class="p p2">TIME</p>
+        <p class="p p3">＠新世界-北京</p>
+        <p class="p p4">2016.04.01</p>
+      </div>
+      <img src="./77.png">
+    </div>
+  </div>
+  <div id="eighth">
+    <div class="people"><img src="./people.png"><div id="ri"></div></div>
+    <div class="whi zi">
+      <div>
+        <p>新时代</p>
+        <p>关于爱生活的我们</p>
+        <div></div>
+        <div id="divdiv"><span>查看更多</span></div>
+        <div id="righ"></div>
+      </div>
+    </div>
+    <div class="red zi">
+      <div>
+        <p>新时代</p>
+        <p>关于爱生活的我们</p>
+        <div></div>
+        <div><span>查看更多</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="ninth">
+    <div id="mm">
+      <p>成为我们的志愿者</p>
+      <div></div>
+      <p class="grey">新世界的大家庭需要每一个爱生活的人加入，如果你够年轻，有梦想，有激情</p>
+      <p class="grey">那就不要犹豫，快来加入我们，成为改变所有人生活的人</p>
+    </div>
+    <div id="xx">
+      <table>
+        <tr class="tdd">
+          <td rowspan="2" class="dis">
+            <p class="hard">新世界志愿者协议</p>
+            <p class="low">加入新世界志愿者的人员必须遵守中华人名共和国的相关法律法规，并且本着平等资源的原则......</p>
+            <div>
+              <img src="./black.png">
+              <span>more</span>
+            </div>
+          </td>
+          <td class="fiftee"><input type="text" placeholder="姓名：" class="input"></td>
+          <td><input type="text" placeholder="年龄：" class="input"></td>
+        </tr>
+        <tr class="tdd">
+          <td class="fiftee"><input type="text" placeholder="联系方式：" class="input"></td>
+          <td><input type="text" placeholder="联系地址：" class="input"></td>
+        </tr>
+        <tr id="aaa">
+          <td class="dis">
+            <p class="hard">新世界志愿者权利</p>
+            <p class="low">加入新世界志愿者享受新世界内部所有自愿共享的权利，并且享受所在新世界活动的优先参与资格......</p>
+            <div>
+              <img src="./black.png">
+              <span>more</span>
+            </div>
+          </td><td colspan="2"><textarea placeholder="请简单描述您梦想的生活：" class="input"></textarea></td>
+        </tr>
+        <tr class="tdd">
+          <td class="dis">
+            <p class="hard">更多条款</p>
+            <div>
+              <img src="./black.png">
+              <span>more</span>
+            </div>
+          </td><td colspan="2"><input type="submit" value="提交申请" class="input submit"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="tenth">
+    <div id=end>
+      <p>联系我们</p>
+      <p class="eee">为了更好的获取我们最新的产品资讯，您可以留下您的电子邮件快速订阅我们的产品资讯</p>
+      <p class="eee">也可以通过以下任何方式关注我们的动态</p>
+      <input type="text" placeholder="someone@email.com"><input type="submit" value="提交">
+      <div>
+        <img src="./10.png">
+        <img src="./11.png">
+        <img src="./09.png">
+        <img src="./12.png">
+      </div>
+    </div>
+  </div>
+  <div id="eleventh">
+    <span>@2016新世界</span>
+    <span>Back to top</span>
+  </div>
+</div>
+
+</body>
+</html>
