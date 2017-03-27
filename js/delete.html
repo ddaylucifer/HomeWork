@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>html</title>
+</head>
+<style>
+#rightin{
+  margin-right: 30px;
+}
+.button{
+  background-color: #fff;
+  border:1px solid #D3D3D3;
+  border-radius: 6px;
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+}
+span{
+  background-color: red;
+  font-size: 20px;
+  color: #fff;
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+}
+</style>
+<body onmousedown="element(event)">
+<input type="text" id="text" />
+<input type="button" id="leftin" class="button" value="左侧入"/>
+<input type="button" id="rightin" class="button" value="右侧入"/>
+<input type="button" id="leftout" class="button" value="左侧出"/>
+<input type="button" id="rightout" class="button" value="右侧出"/>
+<div id="div">
+
+</div>
+
+<script type="text/javascript">
+    var leftin = document.getElementById("leftin");
+    var rightin = document.getElementById("rightin");
+    var leftout = document.getElementById("leftout");
+    var rightout = document.getElementById("rightout");
+    var div = document.getElementById("div");
+    function getin(){
+      var num = document.getElementById("text").value;
+      var space = num.indexOf(" ");
+      if(num==""){
+        alert("请输入一个数字");
+      }
+      else if(!isNaN(num)&&space==-1){
+        var span = document.createElement("span");
+        span.innerHTML = num;
+      }
+      else{
+        alert("请输入数字！或检查输入值是否有空格");
+      }
+      return span;
+    }
+    leftin.onclick = function(){
+      var tt = getin();
+      div.insertBefore(tt,div.firstChild);
+    }
+    rightin.onclick = function(){
+      var tt = getin();
+      div.appendChild(tt);
+    }
+    leftout.onclick = function(){
+      var dediv=document.getElementsByTagName("div");
+      alert(dediv[0].firstChild.innerText);
+      debugger;
+      dediv[0].firstChild.remove();
+    }
+    rightout.onclick = function(){
+      var dediv=document.getElementsByTagName("div");
+      alert(dediv[0].lastChild.innerText);
+      dediv[0].lastChild.remove();
+    }
+    function element(e){
+      if(!e){
+        var e = window.event;
+      }
+      //获取事件点击元素
+      var targ = e.target;
+      //获取元素名称
+      var tname = targ.tagName;
+      if(tname=="SPAN"){
+        targ.remove();
+      }
+    }
+
+</script>
+</body>
+</html>
