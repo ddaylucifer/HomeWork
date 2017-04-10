@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>html</title>
+</head>
+<style>
+
+</style>
+<body>
+<input type="text" id="text1" placeholder="请输入要查询的电话号码" />
+<input type="button" id="search1"  value="查询" />
+<input type="text" id="text2" placeholder="请输入要查询的字符串" />
+<input type="button" id="search2"  value="查询" />
+<script type="text/javascript">
+var test1 = document.getElementById("search1");
+var test2 = document.getElementById("search2");
+test1.onclick = function searchone(){
+  var mobile = document.getElementById("text1").value;
+  if(/^1[3|4|5|8][0-9]\d{8}$/.test(mobile)){
+    alert("true");
+  }
+  else{
+    alert("false");
+  }
+}
+test2.onclick = function searchone(){
+  var str = document.getElementById("text2").value;
+  if(/\w*(\w)\1\w*/.test(str)){
+    alert("字符串中有相邻重复的字符");
+  }
+  else{
+    alert("true");
+  }
+
+}
+
+</script>
+</body>
+</html>
