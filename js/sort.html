@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>html</title>
+</head>
+<style>
+#rightin{
+  margin-right: 30px;
+}
+.button{
+  background-color: #fff;
+  border:1px solid #D3D3D3;
+  border-radius: 6px;
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+}
+div{
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transform:scaleY(-1);
+}
+span{
+  float: left;
+  background-color: red;
+  width:20px;
+  color: #fff;
+  display:inline-block;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+</style>
+<body onmousedown="element(event)">
+<input type="text" id="text" />
+<input type="button" id="leftin" class="button" value="左侧入"/>
+<input type="button" id="rightin" class="button" value="右侧入"/>
+<input type="button" id="leftout" class="button" value="左侧出"/>
+<input type="button" id="rightout" class="button" value="右侧出"/>
+<div id="div">
+
+</div>
+<input type="button" id="sortq" class="button" value="排序"/>
+<input type="button" id="sorta" class="button" value="动画排序"/>
+
+<script type="text/javascript">
+    var leftin = document.getElementById("leftin");
+    var rightin = document.getElementById("rightin");
+    var leftout = document.getElementById("leftout");
+    var rightout = document.getElementById("rightout");
+    var div = document.getElementById("div");
+    function getin(){
+      var num = document.getElementById("text").value;
+      var space = num.indexOf(" ");
+      if(num==""){
+        alert("请输入一个数字");
+      }
+      else if(!isNaN(num)&&space==-1){
+        if(num>9 && num<101){
+          var span = document.createElement("span");
+          span.style.height = num+"px";
+        }
+        else{
+          alert("请输入10-100内的数字");
+        }
+      }
+      else{
+        alert("请输入数字！或检查输入值是否有空格");
+      }
+      return span;
+    }
+    leftin.onclick = function(){
+      var spannum = document.getElementsByTagName("span");
+      if(spannum.length<60){
+        var tt = getin();
+        div.insertBefore(tt,div.firstChild);
+      }
+      else{
+        alert("队列中数量已满，为60个");
+      }
+    }
+    rightin.onclick = function(){
+      var spannum = document.getElementsByTagName("span");
+      if(spannum.length<60){
+        var tt = getin();
+        div.appendChild(tt);
+      }
+      else{
+        alert("队列中数量已满，为60个");
+      }
+    }
+    leftout.onclick = function(){
+      var dediv=document.getElementsByTagName("div");
+      alert(dediv[0].firstChild.innerText);
+      dediv[0].firstChild.remove();
+    }
+    rightout.onclick = function(){
+      var dediv=document.getElementsByTagName("div");
+      alert(dediv[0].lastChild.innerText);
+      dediv[0].lastChild.remove();
+    }
+
+    function element(e){
+      if(!e){
+        var e = window.event;
+      }
+      //获取事件点击元素
+      var targ = e.target;
+      //获取元素名称
+      var tname = targ.tagName;
+      if(tname=="SPAN"){
+        targ.remove();
+      }
+    }
+var sortq = document.getElementById("sortq");
+    sortq.onclick = function divsort(){
+      var a = "";
+      var div_span = document.getElementsByTagName("span");
+      for(var i=0;i<div_span.length;i++){
+        for(var j=i+1;j<div_span.length;j++)
+          if(div_span[i].scrollHeight>div_span[j].scrollHeight){
+            a = div_span[i].scrollHeight;
+            div_span[i].style.height = div_span[j].scrollHeight + "px";
+            div_span[j].style.height = a + "px";
+          }
+      }
+    }
+
+var sorta = document.getElementById("sorta");
+    sorta.onclick = function divsort_animation(){
+    var div_span = document.getElementsByTagName("span");
+    var last = new Array;
+    var num = new Array;
+    var c;
+    var timer = null;
+    for(var i = 0;i<div_span.length;i++){
+      last.push(div_span[i]);
+    }
+    for(var i = 0;i<last.length;i++){
+      for(var j=i+1;j<last.length;j++){
+        if(last[i].scrollHeight>last[j].scrollHeight){
+          c = last[i];
+          last[i] = last[j];
+          last[j] = c;
+        }
+      }
+    }
+    for(var i = 0;i<last.length;i++){
+      for(var j=0;j<div_span.length;j++){
+        if(div_span[j].offsetLeft==last[i].offsetLeft){
+          num.push(j);
+        }
+      }
+    }
+
+    for(var i = 0;i<num.length;i++){
+      for(var j=0;j<div_span.length;j++){
+        if(i==num[j]){
+          div_span[i].num = j;
+        }
+      }
+    }
+
+    for(var i = 0;i<div_span.length;i++){
+      if(div_span[i].num-i>0){
+        var itarget = div_span[i].offsetLeft+(div_span[i].num-i)*22;
+        startMover(timer,div_span[i],itarget);
+      }
+      else if(div_span[i].num-i<0){
+        var itarget = div_span[i].offsetLeft-(i-div_span[i].num)*22;
+        startMover(timer,div_span[i],itarget);
+      }
+    }
+    /*for(var i = 0;i<num.length;i++){
+      for(var j = 0;j<num.length;i++){
+        if(i==num[j]){
+          if(j-i>0){
+            var itarget = div_span[i]+(j-i)*22;
+            startMover(timer,div_span[i],itarget);
+          }
+          else if(j-i<0){
+            var itarget = div_span[i]-(i-j)*22;
+            startMover(timer,div_span[i],itarget);
+          }
+        }
+    }
+  }*/
+}
+
+  function startMover(timer,odiv,itarget){//目标值
+   clearInterval(timer);//执行当前动画同时清除之前的动画
+   var aa = odiv.offsetLeft;
+   timer = setInterval(function(){
+   var speed = 0;
+   if(odiv.offsetLeft > itarget){
+    speed = -1;
+   }
+   else{
+    speed = 1;
+   }
+   if(odiv.offsetLeft == itarget){
+    clearInterval(timer);
+   }
+   else{
+    aa = aa+speed;
+    odiv.style.position = "relative";
+    odiv.style.left = aa+'px';
+    }
+   },30);
+  }
+
+
+</script>
+</body>
+</html>
