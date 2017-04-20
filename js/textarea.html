@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>html</title>
+</head>
+<style>
+textarea{
+  width: 200px;
+  height: 100px;
+}
+#search{
+  width: 200px;
+  height: 50px;
+}
+#rightin{
+  margin-right: 30px;
+}
+.button{
+  vertical-align:top;
+  background-color: #fff;
+  border:1px solid #D3D3D3;
+  border-radius: 6px;
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+}
+div{
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+span{
+  padding: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+</style>
+<body onmousedown="element(event)">
+<textarea id="area" autofocus placeholder="请输入数字、中文或英文,可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔"></textarea>
+<input type="button" id="leftin" class="button" value="左侧入"/>
+<input type="button" id="rightin" class="button" value="右侧入"/>
+<input type="button" id="leftout" class="button" value="左侧出"/>
+<input type="button" id="rightout" class="button" value="右侧出"/>
+<div id="div"></div>
+<textarea id="search" placeholder="请输入要查询的内容"></textarea>
+<input type="button" id="sear" class="button" value="查询"/>
+
+<script type="text/javascript">
+    var leftin = document.getElementById("leftin");
+    var rightin = document.getElementById("rightin");
+    var leftout = document.getElementById("leftout");
+    var rightout = document.getElementById("rightout");
+    var div = document.getElementById("div");
+    var sear = document.getElementById("sear");
+    function getin(){
+      var num = document.getElementById("area").value;
+      var textarea = num.split(/[,，，，、 　]/)
+      if(num==""){
+        alert("输入为空");
+        }
+        else{
+          var init = [];
+          for(var i=0;i<textarea.length;i++){
+            var span = document.createElement("span");
+            span.innerHTML = textarea[i];
+            init.push(span);
+          }
+        }
+      return init;
+    }
+    leftin.onclick = function(){
+      var tt = getin();
+      for(var i=0;i<tt.length;i++){
+        div.insertBefore(tt[i],div.firstChild);
+      }
+    }
+    rightin.onclick = function(){
+      var tt = getin();
+      for(var i=0;i<tt.length;i++){
+        div.appendChild(tt[i]);
+      }
+    }
+    leftout.onclick = function(){
+      var dediv=document.getElementsByTagName("div");
+      alert(dediv[0].firstChild.innerText);
+      dediv[0].firstChild.remove();
+    }
+    rightout.onclick = function(){
+      var dediv=document.getElementsByTagName("div");
+      alert(dediv[0].lastChild.innerText);
+      dediv[0].lastChild.remove();
+    }
+    sear.onclick = function(){
+      var seartext = document.getElementById("search").value;
+      var serach = seartext.split(/[,，，，、 　]/);
+      var spantext = document.getElementsByTagName("span");
+      var h = 0;
+      if(serach[0] !=""){
+        for(var i=0;i<spantext.length;i++){
+          for(var j=0;j<serach.length;j++){
+            var yesorno = spantext[i].innerText.indexOf(serach[j]);
+            if(yesorno>-1){
+              spantext[i].style.color = "#ff0000";
+              spantext[i].style.fontSize = "30px";
+              spantext[i].style.fontFamily = "cursive";
+              h++;
+            }
+          }
+        }
+        if(h==0){
+          alert("无匹配项，请重新输入");
+        }
+      }
+      else{
+        alert("请输入要查询的内容");
+      }
+    }
+    function element(e){
+      if(!e){
+        var e = window.event;
+      }
+      //获取事件点击元素
+      var targ = e.target;
+      //获取元素名称
+      var tname = targ.tagName;
+      if(tname=="SPAN"){
+        targ.remove();
+      }
+    }
+
+
+</script>
+</body>
+</html>
