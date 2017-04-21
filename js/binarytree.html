@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>html</title>
+</head>
+<style>
+.flx{
+  display: flex;
+  border: 2px solid black;
+  width: 40%;
+  height: 50%;
+  margin:auto;
+}
+.fir{
+  display: flex;
+  border: 2px solid black;
+  width: 600px;
+  height:160px;
+  margin: 100px auto;
+}
+input{
+  background-color: #fff;
+  border:1px solid #D3D3D3;
+  border-radius: 6px;
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+}
+.button{
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+input{
+  margin: 10px 20px;
+}
+</style>
+<body>
+<div class="fir box" id="fir">
+  <div class="flx box">
+    <div class="flx box">
+      <div class="flx box">
+
+      </div>
+      <div class="flx box">
+
+      </div>
+    </div>
+    <div class="flx box">
+      <div class="flx box">
+
+      </div>
+      <div class="flx box">
+
+      </div>
+    </div>
+  </div>
+  <div class="flx box">
+    <div class="flx box">
+      <div class="flx box">
+
+      </div>
+      <div class="flx box">
+
+      </div>
+    </div>
+    <div class="flx box">
+      <div class="flx box">
+
+      </div>
+      <div class="flx box">
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button">
+  <input type="button" id="front" value="前序">
+  <input type="button" id="center" value="中序">
+  <input type="button" id="after" value="后序">
+</div>
+<script type="text/javascript">
+var front = document.getElementById("front");
+var center = document.getElementById("center");
+var after = document.getElementById("after");
+var rootnode = document.getElementById("fir");
+var tree = [];
+    front.onclick = function(){
+      fronttree(rootnode,tree);
+      animation(tree);
+    }
+    center.onclick = function(){
+      centertree(rootnode,tree);
+      animation(tree);
+    }
+    after.onclick = function(){
+      aftertree(rootnode,tree);
+      animation(tree);
+    }
+    function fronttree(node,arr){
+      if(node!=null){
+        arr.push(node);
+        fronttree(node.firstElementChild,arr);
+        fronttree(node.lastElementChild,arr);
+      }
+    }
+    function centertree(node,arr){
+      if(node!=null){
+        fronttree(node.firstElementChild,arr);
+        arr.push(node);
+        fronttree(node.lastElementChild,arr);
+      }
+    }
+    function aftertree(node,arr){
+      if(node!=null){
+        fronttree(node.firstElementChild,arr);
+        fronttree(node.lastElementChild,arr);
+        arr.push(node);
+      }
+    }
+    function animation(arr){
+      var i=0;
+      var timer = setInterval(function () {
+      if(i > arr.length -1 ){
+          arr[arr.length -1].style.backgroundColor = "#fff";
+          clearInterval(timer);
+          return;
+      }
+      else {
+          change(arr[i]);
+      }
+      i++;
+    },500);
+  }
+
+  function change(el) {
+    let boxArr = document.querySelectorAll('.box');
+    for(let i = 0;i < boxArr.length; i++){
+        boxArr[i].style.backgroundColor = '#fff';
+    }
+    el.style.backgroundColor = '#337ab7';
+
+}
+
+</script>
+</body>
+</html>
