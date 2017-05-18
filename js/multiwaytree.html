@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>html</title>
+</head>
+<style>
+span{
+  margin: 5px 5px 0 5px;
+}
+.flx{
+  display: flex;
+  border: 2px solid black;
+  height: 60%;
+  margin:auto 1px;
+}
+.fir{
+  display: flex;
+  border: 2px solid black;
+  width: 1114px;
+  height:200px;
+}
+input{
+  background-color: #fff;
+  border:1px solid #D3D3D3;
+  border-radius: 6px;
+  font-family: Microsoft Yahei;
+  font-size: 12px;
+  margin: 10px 20px;
+}
+.button{
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+</style>
+<body>
+<div class="fir box" id="fir">
+  <span>Super</span>
+  <div class="flx box">
+    <span>Car</span>
+    <div class="flx box">
+      <span>Apple</span>
+      <div class="flx box"><span>pear</span></div>
+      <div class="flx box"><span>pig</span></div>
+      <div class="flx box"><span>Colo</span></div>
+      <div class="flx box"><span>Soccor</span></div>
+    </div>
+    <div class="flx box"><span>Phone</span></div>
+    <div class="flx box">
+      <span>Fuck</span>
+      <div class="flx box"><span>Book</span></div>
+      <div class="flx box"><span>School</span></div>
+    </div>
+  </div>
+  <div class="flx box">
+    <span>Note</span>
+    <div class="flx box">
+      <span>Human</span>
+      <div class="flx box"><span>Code</span></div>
+      <div class="flx box"><span>Operate</span></div>
+      <div class="flx box"><span>Man</span></div>
+    </div>
+    <div class="flx box">
+      <span>Program</span>
+      <div class="flx box">
+        <span>Element</span>
+        <div class="flx box"><span>Cat</span></div>
+      </div>
+      <div class="flx box"><span>Glass</span></div>
+    </div>
+  </div>
+  <div class="flx box"><span>Fish</span></div>
+</div>
+<div></div>
+<div class="button">
+  <input type="button" id="front" value="排序" />
+  <input type="text" id="center" />
+  <input type="button" id="search" value="查询" />
+</div>
+<script type="text/javascript">
+var front = document.getElementById("front");
+var textinfor = document.getElementById("center");
+var search = document.getElementById("search");
+var rootnode = document.getElementById("fir");
+    front.onclick = function(){
+      var tree = [];
+      var texttree = [];
+      fronttree(rootnode,tree,texttree);
+      animation(tree);
+      //debugger;
+    }
+    search.onclick = function(){
+      var tree = [];
+      var texttree = [];
+      fronttree(rootnode,tree,texttree);
+      animationse(tree,texttree);
+    }
+    function fronttree(node,arr,tee){
+      if(node!=null){
+        arr.push(node);
+        if(node.firstElementChild){
+          tee.push(node.firstElementChild.innerHTML);
+          if(node.firstElementChild.nextElementSibling!=null){
+            fronttree(node.firstElementChild.nextElementSibling,arr,tee);
+          }
+          else{
+            if(node.nextElementSibling!=null){
+              fronttree(node.nextElementSibling,arr,tee);
+            }
+          }
+          if(node.firstElementChild.nextElementSibling!=null){
+            if(node.nextElementSibling!=null){
+              fronttree(node.nextElementSibling,arr,tee);
+            }
+          }
+        }
+      }
+    }
+    function animation(arr){
+      var i=0;
+      var timer = setInterval(function () {
+      if(i > arr.length -1 ){
+          arr[arr.length -1].style.backgroundColor = "#fff";
+          clearInterval(timer);
+          return;
+      }
+      else {
+          change(arr[i]);
+      }
+      i++;
+    },500);
+  }
+
+  function animationse(arr,tee){
+    var i=0;
+    var timer = setInterval(function () {
+    if(i > arr.length -1 ){
+        arr[arr.length -1].style.backgroundColor = "#fff";
+        clearInterval(timer);
+        return;
+    }
+    else {
+      if(tee[i]==textinfor.value){
+        changered(arr[i]);
+        alert("已查询到");
+        clearInterval(timer);
+        return;
+      }
+      else{
+        change(arr[i]);
+      }
+    }
+    i++;
+    if(i==21){
+      alert("查询无结果");
+    }
+  },500);
+}
+
+  function change(el) {
+    let boxArr = document.querySelectorAll('.box');
+    for(let i = 0;i < boxArr.length; i++){
+        boxArr[i].style.backgroundColor = '#fff';
+    }
+    el.style.backgroundColor = '#337ab7';
+
+}
+
+function changered(el) {
+  let boxArr = document.querySelectorAll('.box');
+  for(let i = 0;i < boxArr.length; i++){
+      boxArr[i].style.backgroundColor = '#fff';
+  }
+  el.style.backgroundColor = '#ff0000';
+
+}
+
+</script>
+</body>
+</html>
